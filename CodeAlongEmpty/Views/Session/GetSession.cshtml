@@ -1,0 +1,20 @@
+﻿
+@{
+    ViewData["Title"] = "GetSession";
+}
+
+<h1>Get Session</h1>
+
+@if(ViewBag.SessionText != null)
+{
+    <p>Text saved to session: @ViewBag.SessionText</p>
+}
+@if(ViewBag.SessionNum != null)
+{
+    <p>Number saved to session: @ViewBag.SessionNum</p>
+}
+
+@if(ViewBag.Calculation != null)
+{
+    <p>Number + number = @ViewBag.Calculation</p>
+}

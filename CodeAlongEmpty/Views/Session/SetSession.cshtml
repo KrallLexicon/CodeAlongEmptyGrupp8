@@ -1,0 +1,20 @@
+﻿@{
+    ViewData["Title"] = "SetSession";
+}
+
+<h1>Set Session</h1>
+
+@if (ViewBag.Message != null)
+{
+    <p>@ViewBag.Message</p>
+}
+else
+{
+    <form asp-action="SetSession" method=post>
+        <label>Test to add to session: </label>
+        <input type="text" name="input" />
+        <label>Number to add to session: </label>
+        <input type="number" name="numericInput" />
+        <input type="submit" value="Set session" />
+    </form>
+}
