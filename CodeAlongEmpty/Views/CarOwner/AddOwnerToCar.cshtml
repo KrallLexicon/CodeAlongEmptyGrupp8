@@ -1,0 +1,16 @@
+﻿
+@{
+    ViewData["Title"] = "AddOwnerToCar";
+}
+
+<h1>Add owner to car</h1>
+
+<form asp-action="AddOwnerToCar" method="post">
+   <div class="form-group">
+       <select name="ssn" class="form-control" asp-items="ViewBag.People"></select>
+   </div>
+   <div class="form-group">
+       <select name="regnumber" class="form-control" asp-items="ViewBag.Cars"></select>
+   </div>
+   <input type="submit" value="Add owner to car" class="btn btn-primary" />
+</form>

@@ -1,0 +1,32 @@
+﻿@model IEnumerable<Car>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Cars</h1>
+
+<a asp-action="Create">Create</a>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Reg number</th>
+            <th>Brand</th>
+            <th>Model</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.RegNumber</td>
+                <td>@item.Brand</td>
+                <td>@item.CarModel</td>
+                <td><a asp-action="Remove" asp-route-regNumber="@item.RegNumber">Remove</a></td>
+                
+                
+            </tr>
+        }
+    </tbody>
+</table>
