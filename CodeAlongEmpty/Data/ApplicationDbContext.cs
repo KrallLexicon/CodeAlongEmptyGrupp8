@@ -1,9 +1,10 @@
 ﻿using CodeAlongEmpty.Models;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace CodeAlongEmpty.Data
 {
-    public class ApplicationDbContext : DbContext
+    public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
         {
@@ -15,8 +16,12 @@ namespace CodeAlongEmpty.Data
 
         public DbSet<CarOwner> CarOwners { get; set; }
 
+        public DbSet<ApplicationUser> Users { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelbuilder)
         {
+            base.OnModelCreating(modelbuilder);
+
             modelbuilder.Entity<CarOwner>().HasKey(co => new { co.RegNumber, co.SSN });
 
             modelbuilder.Entity<CarOwner>()
