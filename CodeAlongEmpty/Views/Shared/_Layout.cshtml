@@ -4,8 +4,8 @@
     <meta name="viewport" content="width=device-width" />
     <title>@ViewBag.Title</title>
     <link rel="stylesheet" href="~/bootstrap/css/bootstrap.css" />
-    </head>
-    <body>
+</head>
+<body>
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container">
@@ -30,18 +30,24 @@
                             <a class="nav-link text-dark" asp-controller="Session" asp-action="SetSession">Set session</a>
                         </li>
                         <li class="nav-item">
-                           <a class="nav-link text-dark" asp-controller="Session" asp-action="GetSession">Get session</a>
+                            <a class="nav-link text-dark" asp-controller="Session" asp-action="GetSession">Get session</a>
                         </li>
                         <li class="nav-item">
-                           <a class="nav-link text-dark" asp-controller="Car" asp-action="Index">Cars</a>
+                            <a class="nav-link text-dark" asp-controller="Car" asp-action="Index">Cars</a>
                         </li>
                         <li class="nav-item">
-                           <a class="nav-link text-dark" asp-controller="People" asp-action="People">Car people</a>
+                            <a class="nav-link text-dark" asp-controller="People" asp-action="People">Car people</a>
                         </li>
-                        <li class="nav-item">
-                           <a class="nav-link text-dark" asp-controller="CarOwner" asp-action="AddOwnerToCar">Add owner to car</a>
-                        </li>
-                        
+                        @if (User.IsInRole("Admin"))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-controller="CarOwner" asp-action="AddOwnerToCar">Add owner to car</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-controller="Role" asp-action="Index">Role manager</a>
+                            </li>
+                        }
+
                     </ul>
                 </div>
             </div>
@@ -58,7 +64,7 @@
             &copy; @DateTime.Now.ToShortDateString() - CodeAlongEmpty
         </div>
     </footer>
-        
-        @RenderSection("Scripts", required:false)
-    </body>
+
+    @RenderSection("Scripts", required:false)
+</body>
 </html>

@@ -2,4 +2,22 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Hello Index!</h1>
+<h1>Index!</h1>
+
+@if (!User.Identity.IsAuthenticated)
+{
+    <p>Welcome not logged in!</p>
+}
+@if (User.Identity.IsAuthenticated)
+{
+    <p>Welcome logged in!</p>
+}
+
+@if (User.IsInRole("User"))
+{
+    <p>Welcome User!</p>
+}
+@if (User.IsInRole("Admin"))
+{
+    <p>Welcome Admin!!</p>
+}
